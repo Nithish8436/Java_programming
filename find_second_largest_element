@@ -1,0 +1,56 @@
+import java.util.Scanner;
+import java.util.*;
+
+
+public class Main
+{
+	public static void main(String[] args) {
+	    
+	    
+	    Scanner sc=new Scanner(System.in);
+	    System.out.println("enter size:");
+	    int n=sc.nextInt();
+	    
+	    int[] arr=new int[n];
+	    System.out.println("enter the element:");
+	    for(int i=0;i<n;i++)
+	    {
+	        arr[i]=sc.nextInt();
+	    }
+	    
+	    System.out.println(findsecondmax(arr));
+	    
+	    sc.close();
+		
+	}
+	
+	private static int findsecondmax(int[] arr)
+	{
+	    if(arr.length<2)
+	    {
+	        return -1;
+	    }
+	    
+	    int max=Integer.MIN_VALUE;
+	    int secondmax=Integer.MIN_VALUE;
+	    
+	    for(int num:arr)
+	    {
+	        if(max<num)
+	        {
+	            secondmax=max;  // 
+	            max=num;       //
+	        }
+	        else if(secondmax<num&&num!=max)   //
+	        {
+	            secondmax=num;       //5
+	        }
+	        
+	    }
+	    if(secondmax==Interger.MIN_VALUE)
+	    {
+	        return max;
+	    }
+	    return secondmax;
+	}
+}
