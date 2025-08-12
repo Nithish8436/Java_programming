@@ -1,0 +1,38 @@
+//bitoninc point is the find the element that the element left and right are smaller than that value .find that element
+
+import java.util.*;
+public class bitonic {
+    public static void main(String []args)
+    {
+    	int arr[]= {1,4,5,12,3,1};
+    	
+    	System.out.println(findbitonic(arr));
+    }
+    
+    private static int findbitonic(int arr[])
+    {
+    	int left=0;
+    	int right=arr.length-1;
+    	
+    	while(left<=right)
+    	{
+    		int mid=(left+right)/2;
+    		
+    		if(arr[mid]>arr[mid+1]&&arr[mid-1]<arr[mid])
+    		{
+    			return arr[mid];
+    		}
+    		
+    		else if(arr[mid-1]>arr[mid])
+    		{
+    			right=mid-1;
+    		}
+    		
+    		else
+    		{
+    			left=mid+1;
+    		}
+    	}
+    	return -1;
+    }
+}
