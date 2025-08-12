@@ -1,0 +1,31 @@
+//without using the copy array we use the priorityqueue method
+
+import java.util.PriorityQueue;
+
+public class kthsmallest {
+     public static void main(String []args)
+     {
+    	 int []arr= {3,10,20,4,5};
+    	 int k=3;
+    	 System.out.println(findkthsmallest(arr,k));
+     }
+     
+     
+     private static int findkthsmallest(int arr[],int k)
+     {
+    	 PriorityQueue<Integer> minheap=new PriorityQueue<>();
+    	 
+    	 for(int num:arr)
+    	 {
+    		 minheap.add(num);
+    		 
+    	 }
+    	 
+    	 for(int i=0;i<k-1;i++)
+    	 {
+    		 minheap.poll();
+    	 }
+    	 
+    	 return minheap.peek();
+     }
+}
