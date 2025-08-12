@@ -13,10 +13,12 @@ public class kthsmallest {
      
      private static int findkthsmallest(int arr[],int k)
      {
-    	 PriorityQueue<Integer> minheap=new PriorityQueue<>();
+    	
       if(arr.length-1<k)
     		 return -1;
-    	 
+
+      PriorityQueue<Integer> minheap=new PriorityQueue<>();
+
     	 for(int num:arr)
     	 {
     		 minheap.add(num);
