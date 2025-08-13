@@ -1,0 +1,78 @@
+//there are three method to solve this program see below based on the method.
+
+import java.util.*;
+
+public class uniqueelement {
+   public static void main(String args[])
+   {
+	   int arr[]= {1,2,2,1,4};
+	   
+	   System.out.println(finduniqueelement(arr));
+   }
+   
+   
+ //using the xor to find the unique but the array have single unique element it provide the correct answer
+
+//   private static int finduniqueelement(int arr[])
+//   {
+//	   int result=0;
+//	   for(int num:arr)
+//	   {
+//		   result=result^num;
+//	   }
+//	   
+//	   return result;
+//   }
+   
+   
+   
+   //another method using the count to find the unique element which element have count=1 then i said to be unique
+   private static int finduniqueelement(int arr[])
+   {
+	  for(int i=0;i<arr.length;i++)
+	  {
+		  int count=0;
+		  for(int j=0;j<arr.length;j++)
+		  {
+			  if(arr[i]==arr[j])
+			  {
+				  count++;
+			  }
+		  }
+		  
+		  if(count==1)
+		  {
+			  return arr[i];
+		  }
+	  }
+	  
+	  return -1;
+   }
+   
+   //using the hashmap to find the uniqye value.
+//   private static int finduniqueelement(int arr[])
+//   {
+//	  HashMap<Integer,Integer> map=new HashMap<>();
+//	  
+//	  
+//	  for(int num:arr)
+//	  {
+//		  map.put(num,map.getOrDefault(num,0)+1);
+//		  
+//	  }
+//	  
+//	  for(int num:arr)
+//	  {
+//		  if(map.get(num)==1)
+//			  return num;
+//	  }
+//	  
+//	  return -1;
+//   }
+   
+   
+   
+}
+
+
+
