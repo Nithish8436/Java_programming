@@ -1,0 +1,64 @@
+import java.util.*;
+
+public class HashMapExample {
+    public static void main(String[] args) {
+
+        // Create a HashMap
+        HashMap<Integer, String> map = new HashMap<>();
+
+        // 1️⃣ Add elements
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Cherry");
+
+        // 2️⃣ Update element (key 2 already exists, so value will change)
+        map.put(2, "Blueberry");
+
+        // 3️⃣ Add only if absent
+        map.putIfAbsent(3, "Mango"); // Will not add because key 3 exists
+        map.putIfAbsent(4, "Mango"); // Will add because key 4 is new
+
+        System.out.println("After adding: " + map);
+
+        // 4️⃣ Access elements
+        System.out.println("Value for key 1: " + map.get(1));
+        System.out.println("Contains key 2? " + map.containsKey(2));
+        System.out.println("Contains value 'Mango'? " + map.containsValue("Mango"));
+
+        // 5️⃣ Remove elements
+        map.remove(4); // Remove by key
+        map.remove(2, "Banana"); // Won’t remove because value doesn't match
+        map.remove(2, "Blueberry"); // Removes because value matches
+
+        System.out.println("After removals: " + map);
+
+        // 6️⃣ Replace values
+        map.replace(1, "Green Apple"); // Replace for key 1
+        map.replace(3, "Cherry", "Grapes"); // Replace only if old value matches
+
+        System.out.println("After replace: " + map);
+
+        // 7️⃣ Iterating through map
+        System.out.println("Keys:");
+        for (Integer key : map.keySet()) {
+            System.out.println(key);
+        }
+
+        System.out.println("Values:");
+        for (String value : map.values()) {
+            System.out.println(value);
+        }
+
+        System.out.println("Key-Value pairs:");
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+
+        // 8️⃣ Other methods
+        System.out.println("Size of map: " + map.size());
+        System.out.println("Is map empty? " + map.isEmpty());
+
+        map.clear();
+        System.out.println("After clear: " + map);
+    }
+}
