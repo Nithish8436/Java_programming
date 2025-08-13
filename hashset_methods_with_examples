@@ -1,0 +1,55 @@
+import java.util.*;
+
+public class HashSetExample {
+    public static void main(String[] args) {
+        // 1. Create a HashSet
+        HashSet<String> set = new HashSet<>();
+
+        // 2. Adding elements
+        set.add("Apple");
+        set.add("Banana");
+        set.add("Orange");
+        set.add("Banana"); // duplicate - will be ignored
+        System.out.println("After adding: " + set);
+
+        // 3. Checking if element exists
+        System.out.println("Contains Apple? " + set.contains("Apple"));
+        System.out.println("Contains Mango? " + set.contains("Mango"));
+
+        // 4. Removing an element
+        set.remove("Orange");
+        System.out.println("After removing Orange: " + set);
+
+        // 5. Size and empty check
+        System.out.println("Set size: " + set.size());
+        System.out.println("Is set empty? " + set.isEmpty());
+
+        // 6. Adding multiple elements from another collection
+        HashSet<String> moreFruits = new HashSet<>(Arrays.asList("Grapes", "Apple", "Mango"));
+        set.addAll(moreFruits);
+        System.out.println("After addAll: " + set);
+
+        // 7. Retain only common elements with another set
+        set.retainAll(Arrays.asList("Apple", "Grapes"));
+        System.out.println("After retainAll: " + set);
+
+        // 8. Remove multiple elements
+        set.removeAll(Arrays.asList("Apple"));
+        System.out.println("After removeAll: " + set);
+
+        // 9. Iterate through elements
+        System.out.print("Iterating: ");
+        for (String fruit : set) {
+            System.out.print(fruit + " ");
+        }
+        System.out.println();
+
+        // 10. Convert to array
+        Object[] array = set.toArray();
+        System.out.println("Converted to array: " + Arrays.toString(array));
+
+        // 11. Clear the set
+        set.clear();
+        System.out.println("After clear: " + set);
+    }
+}
